@@ -1,8 +1,9 @@
 body{
   background-image: url("https://wiki.hypixel.net/images/8/81/SkyBlock_renders_locations_1.jpg");
+  width: 600px;
   padding: 2em;
   color:white;
-  margin: auto 1%;
+  margin: auto auto;
   text-align: center;
 }
 fieldset{
