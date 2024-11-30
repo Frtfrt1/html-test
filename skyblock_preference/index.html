@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="sheet">
+      <a href="https://hypixel.net/"><img src="https://wiki.hypixel.net/skins/HypixelNeue/resources/skins.hypixelneue.styles.images/hypixel-full.png?94a59"></a>
+      <h1 id="title" name="title" >Skyblock Preference Task</h1>
+      <p id="description" name="description">Let's see how much you love Skyblock.</p>
+      <hr>
+      <form id="survey-form">
+        <fieldset>
+          <label id="name-label" for="name" class="ques">How can I call you? <input id="name" type="text" placeholder="Jerry" required /></label>
+          <br>
+          <label id="email-label" for="email" class="ques">Where can I find you? (e-mail) <input id="email" type="email" required placeholder="user@gmail.com"/></label>
+          <br>
+          <label id="number-label" for="number" class="ques">How many hours have you played Skyblock? <input id="number" type="number" min="999" max="100000000" placeholder="100000000" required/></label>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <p class="ques">What's your favorite Skyblock skill?
+            <select id="dropdown" required>
+              <option value="">(Select One From Below)</option>
+              <option value="1">Combat</option>
+              <option value="2">Mining</option>
+              <option value="3">Farming</option>
+              <option value="4">Foraging</option>
+              <option value="5">Fishing</option>
+              <option value="6">Enchanting</option>
+              <option value="7">Alchemy</option>
+              <option value="8">Taming</option>
+              <option value="9">Dungeoneering</option>
+              <option value="10">Carpentry</option>
+              <option value="11">Social</option>
+              <option value="12">Runecrafting</option>
+            </select>
+          </p>
+          <fieldset>
+            <legend>How much do you <em>love</em> Skyblock?</legend>
+            <label for="im"><p class="inline"> Incredibly Much <input checked type="radio" id="im" name="lrate" value="im"/></p></label>
+            <label for="vm"><p class="inline">/ Very Much <input type="radio" id="vm" name="lrate"value="vm"/></p></label>
+            <label for="al"><p class="inline">/ A Lot <input type="radio" id="al" name="lrate" value="al"/></p></label>
+          </fieldset>
+          <label for="if"><p class="inline">/ I forgor <input type="radio" id="if" name="lrate" value="if"/></p>/</label>
+          <label for="skibidi"><p class="inline"> <strong>SKIBIDI</strong> <input type="radio" id="skibidi" name="lrate" value="skibidi"/></p></label>
+          <br>
+        </fieldset>
+        <br>
+        <fieldset>
+          <legend>What can you give up to play Skyblock?</legend>
+          <label for="SG"><p class="inline">Samsung Galaxy <input type="checkbox" name="giveup" value="SamsungGalaxy" id="SG"/></p></label>
+          <label for="ML"><p class="inline">/ My Life <input type="checkbox" name="giveup" value="MyLife" id="ML"/></p></label>
+          <label for="MH"><p class="inline">/ My Home <input type="checkbox" name="giveup" value="MyHome" id="MH"/></p></label>
+          <label for="EB"><p class="inline">/ Electricity Bills <input type="checkbox" name="giveup" value="EB" id="EB" disabled checked/></p></label>
+          <label for="IQ"><p class="inline">/ IQ 200 <input type="checkbox" name="giveup" value="IQ" id="IQ" disabled/></p></label>
+        </fieldset>
+        <br>
+        <fieldset>
+          <legend>Write an essay of 'why Skyblock is good'.</legend>
+          <textarea id="essay" name="essay" rows="5" cols="30" placeholder="Once upon a time..."></textarea>
+        </fieldset>
+        <hr>
+        <p class="rickroll"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="rick">Check Our Terms of Services</a></p>
+        <input type="submit" name="submit" id="submit" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>
