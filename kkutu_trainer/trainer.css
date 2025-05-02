@@ -1,8 +1,7 @@
 #header {
   position: absolute;
   top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 10px;
   display: flex;
   align-items: center;
   gap: 0.6rem;
