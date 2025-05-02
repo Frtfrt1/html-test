@@ -4,14 +4,8 @@ l_end = ['','ㄱ','ㄲ','ㄱㅅ','ㄴ','ㄴㅈ','ㄴㅎ','ㄷ','ㄹ','ㄹㄱ','�
 
 function compose(ch) {
   k = ch.charCodeAt(0)-44032;
-  if (k < 0 || k >= 11172) return [ch]
-  return [l_first[~~(k/588)], l_mid[~~(k/28)%21], l_end[k%28]];
-}
-
-function composemultiple(str) {
-  res = ''
-  for (let i = 0; i < str.length; i++) compose(str.charAt(i)).forEach(e => res += e);
-  return res;
+  if (k < 0 || k >= 11172) return ch
+  return '' + l_first[~~(k/588)] + l_mid[~~(k/28)%21] + l_end[k%28];
 }
 
 window.onload = () => {
@@ -26,7 +20,6 @@ window.onload = () => {
   const timerDisplay = document.getElementById('timer');
   
   let currentWord = "";
-  let currentWordCompose = "";
   let startTime = Date.now();
   
   // Timer with milliseconds
@@ -43,9 +36,9 @@ window.onload = () => {
     status.textContent = currentWord;
     status.className = "gray-text";
     input.classList.remove("green-pulse", "red-pulse", "black-text", "red-text");
+    input.classList.add("black-text");
     input.style.transitionDuration = "1s";
     input.style.width = 0;
-    currentWordCompose = composemultiple(currentWord);
   }
   
   input.addEventListener("input", () => {
@@ -53,15 +46,19 @@ window.onload = () => {
     const typed = input.value;
     if (typed === "") {
       input.classList.remove("red-text", "black-text");
+      input.classList.add("black-text");
       return;
     }
     
     input.style.transitionDuration = "0.3s";
     input.style.width = (typed.length+1)*1.3 + "rem";
-  
-    console.log(composemultiple(typed));
-    console.log(currentWordCompose);
-    if (currentWordCompose.startsWith(composemultiple(typed))) {
+
+    console.log(currentWord);
+    console.log(typed.substring(0, typed.length-1));
+    console.log(compose(currentWord.charAt(typed.length-1)));
+    console.log(compose(typed.charAt(typed.length-1)));
+    if ((typed.length == 1 || currentWord.startsWith(typed.substring(0, typed.length-1))) 
+      && (compose(currentWord.charAt(typed.length-1))+compose(currentWord.charAt(typed.length))).startsWith(compose(typed.charAt(typed.length-1)))) {
       input.classList.add("black-text");
       input.classList.remove("red-text");
     } else {
@@ -69,7 +66,7 @@ window.onload = () => {
       input.classList.remove("black-text");
     }
   });
-  
+
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       if (input.value === currentWord) {
@@ -79,9 +76,10 @@ window.onload = () => {
         input.classList.add("green-pulse");
         setTimeout(showNewWord, 1000);
       } else {
+        if (status.classList == "red-pulse") return;
         status.textContent = "Wrong!";
         status.className = "red-pulse";
-        setTimeout(() => {status.textContent = currentWord}, 1000);
+        setTimeout(() => {status.classList.remove("red-pulse"); status.textContent = currentWord;},600);
       }
     }
   });

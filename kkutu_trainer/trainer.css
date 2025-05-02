@@ -125,7 +125,7 @@ body > div {
 }
 
 .red-pulse {
-  color: red;
+  color: #FF0F5B;
   animation: pulse 0.4s ease-in;
 }
 
