@@ -4,16 +4,17 @@
   <meta charset="UTF-8" />
   <title>Korean Typing Game</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-  <link href="trainer.css" rel="stylesheet" type="text/css" />
-  <script src="trainer.js"></script>
+  <link rel="stylesheet" href="trainer.css" />
 </head>
 <body>
   <div id="display">
     <span id="firstChar">?</span>
     <span id="lengthHint"></span>
   </div>
-  <input type="text" id="input" placeholder="정답을 입력하세요..." autocomplete="off" />
+  <input type="text" id="input" autocomplete="off" />
   <div id="status"></div>
-  <div id="timer">Time: 0s</div>
+  <div id="timer">Time: 0.000s</div>
+
+  <script src="trainer.js"></script>
 </body>
 </html>
