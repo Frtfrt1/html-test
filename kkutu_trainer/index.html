@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <title>Korean Typing Game</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="trainer.css" />
+  <script src="words.js"></script>
+  <script src="trainer.js"></script>
 </head>
 <body>
-  <div id="display">
-    <span id="firstChar">?</span>
-    <span id="lengthHint"></span>
+  <div id="prepare">
+    <span id="pressany"><span id="space">SPACE</span> 키를 눌러 시작하기</span>
   </div>
-  <input type="text" id="input" autocomplete="off" />
-  <div id="status"></div>
-  <div id="timer">Time: 0.000s</div>
-
-  <script src="trainer.js"></script>
+  <div id="main-game">
+    <div id="display">
+      <span id="firstChar">?</span>
+      <span id="lengthHint"></span>
+    </div>
+    <input type="text" id="input" autocomplete="off" />
+    <div id="status"></div>
+    <div id="timer">Time: 0.000s</div>
+  </div>
 </body>
 </html>
