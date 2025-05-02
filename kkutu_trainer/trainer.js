@@ -1,5 +1,20 @@
-window.onload = () => {
+l_first = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
+l_mid = ['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ']
+l_end = ['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']
 
+function compose(ch) {
+  k = ch.charCodeAt(0)-44032;
+  if (k < 0 || k >= 11172) return [ch]
+  return [l_first[~~(k/588)], l_mid[~~(k/28)%21], l_end[k%28]];
+}
+
+function composemultiple(str) {
+  res = ''
+  for (let i = 0; i < str.length; i++) compose(str.charAt(i)).forEach(e => res += e);
+  return res;
+}
+
+window.onload = () => {
   const prepare = document.getElementById('prepare');
   const pressany = document.getElementById('pressany');
 
@@ -11,6 +26,7 @@ window.onload = () => {
   const timerDisplay = document.getElementById('timer');
   
   let currentWord = "";
+  let currentWordCompose = "";
   let startTime = Date.now();
   
   // Timer with milliseconds
@@ -29,6 +45,7 @@ window.onload = () => {
     input.classList.remove("green-pulse", "red-pulse", "black-text", "red-text");
     input.style.transitionDuration = "1s";
     input.style.width = 0;
+    currentWordCompose = composemultiple(currentWord);
   }
   
   input.addEventListener("input", () => {
@@ -42,7 +59,9 @@ window.onload = () => {
     input.style.transitionDuration = "0.3s";
     input.style.width = (typed.length+1)*1.3 + "rem";
   
-    if (currentWord.startsWith(typed.substring(0, typed.length-1))) {
+    console.log(composemultiple(typed));
+    console.log(currentWordCompose);
+    if (currentWordCompose.startsWith(composemultiple(typed))) {
       input.classList.add("black-text");
       input.classList.remove("red-text");
     } else {
