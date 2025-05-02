@@ -1,0 +1,65 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Type the Word</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #word {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    #input {
+      font-size: 1.5rem;
+    }
+    #status {
+      margin-top: 1rem;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="word">Loading...</div>
+  <input type="text" id="input" autocomplete="off" />
+  <div id="status"></div>
+
+  <script>
+    const words = ["apple", "banana", "cherry", "dragon", "elephant"];
+    const wordElement = document.getElementById("word");
+    const inputElement = document.getElementById("input");
+    const statusElement = document.getElementById("status");
+
+    function getRandomWord() {
+      return words[Math.floor(Math.random() * words.length)];
+    }
+
+    let currentWord = "";
+
+    function showNewWord() {
+      currentWord = getRandomWord();
+      wordElement.textContent = currentWord;
+      inputElement.value = "";
+      inputElement.focus();
+      statusElement.textContent = "";
+    }
+
+    inputElement.addEventListener("input", () => {
+      if (inputElement.value === currentWord) {
+        statusElement.textContent = "Correct!";
+        setTimeout(showNewWord, 1000);
+      }
+    });
+
+    showNewWord();
+  </script>
+</body>
+</html>
