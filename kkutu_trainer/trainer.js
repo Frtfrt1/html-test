@@ -18,9 +18,26 @@ window.onload = () => {
     const elapsed = (Date.now() - startTime) / 1000;
     timerDisplay.textContent = `Time: ${elapsed.toFixed(3)}s`;
   }, 50);
+
+  var wordArray = new Array(); 
   
   function showNewWord() {
-    currentWord = words[Math.floor(Math.random() * words.length)];
+    if (wordArray.length===words.length) {
+        wordArray = Array(); //이걸로 몇 번 돌았는지 계산 가능
+    }
+    
+    while (1) {
+      //단어 수 늘어날 수록 오래 걸림
+       var random = Math.floor(Math.random() * words.length);
+       var flag = 0;
+       for (let i=0; i<wordArray.length; i++) {
+          if (wordArray[i]===words[random]) { var flag = 1; break; }
+       }
+       if (flag==0) { break; }
+    }
+    wordArray.push(words[random]);
+    currentWord = words[random];
+    
     firstChar.textContent = currentWord[0];
     lengthHint.textContent = currentWord.length;
     input.value = "";
