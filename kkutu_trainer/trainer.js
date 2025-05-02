@@ -8,20 +8,20 @@ let words = [];
 let currentWord = "";
 let startTime = Date.now();
 
-// Timer
+// Timer with milliseconds
 setInterval(() => {
-  const elapsed = Math.floor((Date.now() - startTime) / 1000);
-  timerDisplay.textContent = `Time: ${elapsed}s`;
-}, 1000);
+  const elapsed = (Date.now() - startTime) / 1000;
+  timerDisplay.textContent = `Time: ${elapsed.toFixed(3)}s`;
+}, 50);
 
 function showNewWord() {
   currentWord = words[Math.floor(Math.random() * words.length)];
   firstChar.textContent = currentWord[0];
   lengthHint.textContent = currentWord.length;
   input.value = "";
-  input.placeholder = currentWord; // Show faint full word
-  status.textContent = "";
-  input.classList.remove("green-pulse", "red-text");
+  status.textContent = currentWord;
+  status.className = "gray-text";
+  input.classList.remove("green-pulse", "red-pulse", "black-text", "red-text");
 }
 
 input.addEventListener("input", () => {
@@ -50,7 +50,7 @@ input.addEventListener("keydown", (e) => {
       setTimeout(showNewWord, 1000);
     } else {
       status.textContent = "Wrong!";
-      status.className = "red-text";
+      status.className = "red-pulse";
     }
   }
 });
