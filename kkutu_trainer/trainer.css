@@ -34,19 +34,29 @@ body {
   transition: all 0.3s;
 }
 
-#input::placeholder {
-  opacity: 0.3;
-}
-
 #status {
   margin-top: 1rem;
   font-size: 1.5rem;
+  color: gray;
   transition: all 0.3s;
+  min-height: 1.5rem;
+}
+
+#timer {
+  position: fixed;
+  bottom: 20px;
+  font-size: 1.2rem;
+  color: green;
 }
 
 .green-pulse {
   color: green;
   animation: pulse 0.6s ease-out;
+}
+
+.red-pulse {
+  color: red;
+  animation: pulse 0.4s ease-in;
 }
 
 .red-text {
@@ -61,11 +71,4 @@ body {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
-}
-
-#timer {
-  position: fixed;
-  bottom: 20px;
-  font-size: 1.2rem;
-  color: green;
 }
