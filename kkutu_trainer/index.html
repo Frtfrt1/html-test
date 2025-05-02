@@ -29,20 +29,20 @@
 </head>
 <body>
   <div id="word">Loading...</div>
-  <input type="text" id="input" autocomplete="off" />
+  <input type="text" id="input" autocomplete="off" disabled />
   <div id="status"></div>
 
   <script>
-    const words = ["apple", "banana", "cherry", "dragon", "elephant"];
     const wordElement = document.getElementById("word");
     const inputElement = document.getElementById("input");
     const statusElement = document.getElementById("status");
 
+    let words = [];
+    let currentWord = "";
+
     function getRandomWord() {
       return words[Math.floor(Math.random() * words.length)];
     }
-
-    let currentWord = "";
 
     function showNewWord() {
       currentWord = getRandomWord();
@@ -59,7 +59,22 @@
       }
     });
 
-    showNewWord();
+    // Load words from the external file
+    fetch("words.txt")
+      .then(response => response.text())
+      .then(text => {
+        words = text.split(/\r?\n/).filter(word => word.trim().length > 0);
+        if (words.length > 0) {
+          inputElement.disabled = false;
+          showNewWord();
+        } else {
+          wordElement.textContent = "No words found in the file.";
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        wordElement.textContent = "Error loading word list.";
+      });
   </script>
 </body>
 </html>
