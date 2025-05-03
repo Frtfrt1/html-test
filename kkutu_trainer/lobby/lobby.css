@@ -9,8 +9,6 @@ body {
   background: #f4f4f4;
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
 #lobby-header {
@@ -20,9 +18,18 @@ body {
   display: flex;
 }
 
+#main-header {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
 #header-icon img {
-  width: 64px;
-  height: 64px;
+  width: 3rem;
+  height: 3rem;
 }
 
 #lobby-title {
@@ -31,13 +38,13 @@ body {
 }
 
 .mode-container {
-  flex-grow: 1;
+  position: relative;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  padding: 2rem;
-  height: 100vh;
+  padding-top: 6rem; /* space for header */
 }
 
 .mode-button {
