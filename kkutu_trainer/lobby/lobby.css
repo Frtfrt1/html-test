@@ -1,36 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
   padding: 0;
   background: #f4f4f4;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+#lobby-header {
+  text-align: center;
+  padding: 1.2rem 0 0.5rem 0;
+  flex-shrink: 0;
 }
 
 #header-icon img {
   width: 64px;
   height: 64px;
-  margin-top: 1.5rem;
 }
 
 #lobby-title {
   font-size: 2.5rem;
-  margin: 0.5rem 0 1.5rem 0;
+  margin: 0.5rem 0 0;
 }
 
 .mode-container {
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  flex-grow: 1;
+  padding: 2rem;
 }
 
 .mode-button {
-  background: linear-gradient(to bottom, #e0e0e0, #b0b0b0); /* subtle gradient */
-  width: 30vh; /* square based on viewport height */
+  background: linear-gradient(to bottom, #e6e6e6, #c2c2c2); /* slightly lighter gradient */
+  width: 30vh;
   height: 30vh;
   border-radius: 24px;
   text-decoration: none;
@@ -41,7 +51,6 @@ body {
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-  position: relative;
 }
 
 .mode-button img {
