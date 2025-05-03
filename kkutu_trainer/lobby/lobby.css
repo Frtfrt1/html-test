@@ -11,6 +11,13 @@ body {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: 'NanumBarunpenB';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunpen/NanumBarunpenB.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunpen/NanumBarunpenB.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunpen/NanumBarunpenB.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunpen/NanumBarunpenB.ttf) format("truetype");
+  font-display: sw
+}
+
 #lobby-header {
   text-align: center;
   padding: 1.2rem 0 0.5rem 0;
@@ -94,6 +101,7 @@ body {
 }
 
 .mode-name {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  font-family: 'NanumBarunpenB', sans-serif;
 }
