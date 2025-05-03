@@ -59,12 +59,12 @@ body {
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(255, 122, 122, 0.12);
+  box-shadow: 0 4px 10px rgba(255, 122, 122, 0.2);
 }
 
 .mode-button-l:hover {
   transform: scale(1.08);
-  box-shadow: 0 10px 20px rgba(255, 122, 122, 0.2);
+  box-shadow: 0 10px 20px rgba(255, 122, 122, 0.35);
 }
 
 .mode-button-r {
@@ -78,12 +78,12 @@ body {
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(148, 157, 255, 0.12);
+  box-shadow: 0 4px 10px rgba(148, 157, 255, 0.2);
 }
 
-.mode-button-l:hover {
+.mode-button-r:hover {
   transform: scale(1.08);
-  box-shadow: 0 10px 20px rgba(148, 157, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(148, 157, 255, 0.35);
 }
 
 .mode-button img {
