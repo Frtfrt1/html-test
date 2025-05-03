@@ -48,7 +48,7 @@ const setting_meta = {
   },
   'partially-hide': {
     'type': 'bool',
-    'default': '1',
+    'default': '0',
   },
 }
 const lang_key = {
