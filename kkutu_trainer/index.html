@@ -4,20 +4,16 @@
   <meta charset="UTF-8" />
   <title>끄투플마단</title>
   <link rel="icon" href="kkutu.webp" type="image/x-icon" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_left,arrow_right,cancel,check_circle" />
   <link rel="stylesheet" href="trainer.css" />
   <script src="words.js"></script>
   <script src="trainer.js"></script>
 </head>
 <body>
   <div id="prepare">
-    <span id="pressany"><span id="space">SPACE</span> 키를 눌러 시작하기</span>
+    <span id="pressany">SPACE 키를 눌러 시작하기</span>
   </div>
   <div id="main-game" class="hidden">
-    <div id="header">
-      <a href="lobby/index.html">
-        <img src="kkutuu.webp" alt="Logo" id="logo" />
-      </a>
-    </div>
     <div id="display">
       <span id="firstChar">?</span>
       <span id="lengthHint"></span>
@@ -25,6 +21,12 @@
     <input type="text" id="input" autocomplete="off" />
     <div id="status"></div>
     <div id="timer">Time: 0.000s</div>
+  </div>
+  <div id="header" class="header-unexpanded">
+    <img src="kkutuu.webp" alt="Logo" id="logo" />
+    <div id="logotxt">끄투플마단 설정</div>
+    <div id="settings">
+    </div>
   </div>
 </body>
 </html>

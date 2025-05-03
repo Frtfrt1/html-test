@@ -2,32 +2,91 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  z-index: 10;
-  padding: 0.4rem 1rem;
-  border-radius: 12px;
-}
-
-#header {
-  background-color: #fff;
+  margin: 0;
   padding: 8px;
-  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform-origin: top right;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
+  background-color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  white-space: nowrap;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+
+#header:hover {
+  width: 340px;
+  height: 100px;
+  padding-top: 58px;
 }
 
 #logo {
-  width: 50px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
   height: 50px;
-  margin: 0;
-  padding: 0;
-  transition: transform 0.3s ease;
 }
 
-#logo:hover{
-  transform: scale(1.08);
+#logotxt {
+  position: absolute;
+  top: 8px;
+  left: 70px;
+  height: 50px;
+  font-weight: 600;
+  line-height: 54px;
+  opacity: 0;
+  transition: all 0.3s;
+  font-size: 1.5rem;
+}
+
+#header:hover > #logotxt {
+  opacity: 1;
+}
+
+#settings {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  width: 90%;
+  height: 100%;
+  display: grid;
+  padding: 16px;
+  margin-top: 10px;
+  flex-direction: column;
+  grid-template-columns: 35% 65%;
+  row-gap: 8px;
+  column-gap: 12px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+#settings > span {
+  display: flex;
+  align-items: center;
+}
+
+#header:hover > #settings {
+  opacity: 1;
+  pointer-events: auto;
+  font-size: 1.3rem;
+}
+
+#header .material-symbols-outlined {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto;
+  margin-bottom: -3px;
+  font-variation-settings:
+  'FILL' 1,
+  'GRAD' 0,
+  'opsz' 24
 }
 
 #title {
@@ -70,15 +129,6 @@ body > div {
 
 #pressany {
   font-size: 4.5rem;
-  font-weight: 200;
-}
-
-#space {
-  color: #f9f9f9; 
-  background: #222;
-  padding: 0.2rem 0.4rem; 
-  border-radius: 0.5rem;
-  transition: .5s ease-out;
   font-weight: 200;
 }
 
